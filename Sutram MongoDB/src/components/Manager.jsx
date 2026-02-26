@@ -34,10 +34,19 @@ const Manager = () => {
 
     const savePassword = async () => {
         if (form.site.length > 3 && form.username.length > 3 && form.password.length > 3) {
-            await fetch("http://localhost:3000/", { method: "DELETE", headers: { "content-type": "application/json" }, body: JSON.stringify({ id: form.id }) })
+            await fetch("http://localhost:3000/", { method: "DELETE", 
+            headers: { "content-type": "application/json" }, 
+            body: JSON.stringify({ id: form.id }) })
             setPasswordArray([...passwordArray, { ...form, id: uuidv4() }])
+            
             let res = await fetch("http://localhost:3000/", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ...form, id: uuidv4() }) })
+
+
             setForm({ site: "", username: "", password: "", id: "" })
+
+
+
+
             toast('Password saved', {
                 position: "top-right", autoClose: 5000, hideProgressBar: false,
                 closeOnClick: false, pauseOnHover: true, draggable: true, theme: "dark",
