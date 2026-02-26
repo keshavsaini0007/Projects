@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#1a0a3a"/>
+      <stop offset="100%" stop-color="#08030f"/>
+    </radialGradient>
+
+    <radialGradient id="dotGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#00e5cc"/>
+    </radialGradient>
+
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#d8b4fe"/>
+      <stop offset="100%" stop-color="#00e5cc"/>
+    </linearGradient>
+
+    <!-- Glow: tight blur for small sizes -->
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="centerGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+  </defs>
+
+  <!-- Background -->
+  <circle cx="32" cy="32" r="32" fill="url(#bg)"/>
+
+  <!-- Ring 1 — outermost, thick + bright so it shows at small size -->
+  <circle cx="32" cy="32" r="26"
+    fill="none" stroke="#7c3aed" stroke-width="2.5"
+    stroke-opacity="0.9" filter="url(#glow)">
+    <animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Ring 2 — middle -->
+  <circle cx="32" cy="32" r="18"
+    fill="none" stroke="#a855f7" stroke-width="2"
+    stroke-opacity="0.85" filter="url(#glow)">
+    <animate attributeName="stroke-opacity" values="0.5;0.95;0.5" dur="2s" begin="0.4s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Ring 3 — inner -->
+  <circle cx="32" cy="32" r="11"
+    fill="none" stroke="#c084fc" stroke-width="1.8"
+    stroke-opacity="0.9" filter="url(#glow)">
+    <animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="1.6s" begin="0.8s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Ripple pulse from center -->
+  <circle cx="32" cy="32" r="6" fill="none" stroke="#00e5cc" stroke-width="1.5">
+    <animate attributeName="r"       values="6;24;6"    dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0;0.8" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Arrow shaft — thick so visible at 16px -->
+  <line x1="47" y1="17" x2="35" y2="29"
+    stroke="url(#arrowGrad)" stroke-width="3"
+    stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- Arrow head — larger triangle -->
+  <polygon points="32,32 39,22 44,28"
+    fill="url(#arrowGrad)" filter="url(#glow)"/>
+
+  <!-- Fletching lines -->
+  <line x1="47" y1="17" x2="43" y2="12"
+    stroke="#d8b4fe" stroke-width="2" stroke-linecap="round" stroke-opacity="0.9"/>
+  <line x1="47" y1="17" x2="52" y2="21"
+    stroke="#d8b4fe" stroke-width="2" stroke-linecap="round" stroke-opacity="0.9"/>
+
+  <!-- Center dot — large + glowing -->
+  <circle cx="32" cy="32" r="5" fill="#00e5cc" filter="url(#centerGlow)">
+    <animate attributeName="r" values="4;6;4" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="32" cy="32" r="2.2" fill="#ffffff"/>
+
+</svg>
