@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+
+@keyframes dotbreathe {
+  0%,100% { background-size: 20px 20px; opacity: 1; }
+  50%      { background-size: 28px 28px; opacity: 0.6; }
+}
+
+
+
+
+
+
+
+/* for payment btn */
+
+/* From Uiverse.io by Ashon-G */ .uiverse {
+  --duration: 13s;
+  --easing: linear;
+
+  --c-color-1: rgba(217, 119, 6, 0.85);
+  --c-color-2: rgba(245, 158, 11, 0.9);
+  --c-color-3: rgba(180, 60, 10, 0.8);
+  --c-color-4: rgba(254, 215, 100, 0.7);
+  --c-color-5: rgba(251, 140, 40, 0.8);
+  --c-color-6: rgba(146, 64, 14, 0.85);
+
+  --c-shadow: rgba(217, 119, 6, 0.6);
+  --c-shadow-inset-top: rgba(120, 53, 6, 0.9);
+  --c-shadow-inset-bottom: rgba(180, 83, 9, 0.75);
+  --c-radial-inner: #3d1a00;
+  --c-radial-outer: #1a0800;
+  --c-color: #fff8f0;
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  display: table;
+  border-radius: 5px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  color: var(--c-color);
+  background: radial-gradient(circle, var(--c-radial-inner), var(--c-radial-outer) 10%);
+  box-shadow: 0 0 14px var(--c-shadow), 0 0 40px rgba(217,119,6,0.2);
+  width: 100%;
+}
+
+.uiverse:before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+  left: 0; top: 0; right: 0; bottom: 0;
+  border-radius: 5px;
+  box-shadow:
+    inset 0 3px 12px var(--c-shadow-inset-top),
+    inset 0 -3px 4px var(--c-shadow-inset-bottom);
+}
+
+.uiverse .wrapper {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  overflow: hidden;
+  border-radius: 10px;
+  width: 100%;
+  padding: 14px 0;
+  box-sizing: border-box;
+}
+
+.uiverse .wrapper span {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.15em;
+}
+
+.uiverse:hover {
+  /* --duration: 20s; */
+  box-shadow: 0 0 12px var(--c-shadow), 0 0 60px rgba(245,158,11,0.3);
+}
+
+/* ── Base circle ── */
+.uiverse .wrapper .circle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 42px;
+  border-radius: 30%;
+  filter: blur(var(--blur, 10px));
+  background: var(--background, transparent);
+  transform: translate(var(--x, 0), var(--y, 0)) translateZ(0);
+  animation: var(--animation, none) var(--duration) var(--easing) infinite;
+}
+
+/* ── Color groups ── */
+.uiverse .wrapper .circle.circle-1,
+.uiverse .wrapper .circle.circle-7,
+.uiverse .wrapper .circle.circle-14 { --background: var(--c-color-1); --blur: 11px; }
+
+.uiverse .wrapper .circle.circle-2,
+.uiverse .wrapper .circle.circle-8,
+.uiverse .wrapper .circle.circle-15 { --background: var(--c-color-2); --blur: 14px; }
+
+.uiverse .wrapper .circle.circle-3,
+.uiverse .wrapper .circle.circle-9,
+.uiverse .wrapper .circle.circle-16 { --background: var(--c-color-3); --blur: 17px; }
+
+.uiverse .wrapper .circle.circle-4,
+.uiverse .wrapper .circle.circle-10,
+.uiverse .wrapper .circle.circle-17 { --background: var(--c-color-4); --blur: 9px; }
+
+.uiverse .wrapper .circle.circle-5,
+.uiverse .wrapper .circle.circle-11,
+.uiverse .wrapper .circle.circle-18 { --background: var(--c-color-5); --blur: 15px; }
+
+.uiverse .wrapper .circle.circle-6,
+.uiverse .wrapper .circle.circle-12,
+.uiverse .wrapper .circle.circle-13,
+.uiverse .wrapper .circle.circle-19,
+.uiverse .wrapper .circle.circle-20 { --background: var(--c-color-6); --blur: 18px; }
+
+/* ── Starting positions: evenly spread across ~400px button width ──
+   Each circle starts in its own zone so coverage is uniform */
+.uiverse .wrapper .circle.circle-1  { --x: 10px;  --y: -6px;  --animation: circle-1;  }
+.uiverse .wrapper .circle.circle-2  { --x: 55px;  --y: 4px;   --animation: circle-2;  }
+.uiverse .wrapper .circle.circle-3  { --x: 100px; --y: -8px;  --animation: circle-3;  }
+.uiverse .wrapper .circle.circle-4  { --x: 150px; --y: 2px;   --animation: circle-4;  }
+.uiverse .wrapper .circle.circle-5  { --x: 200px; --y: -6px;  --animation: circle-5;  }
+.uiverse .wrapper .circle.circle-6  { --x: 250px; --y: 4px;   --animation: circle-6;  }
+.uiverse .wrapper .circle.circle-7  { --x: 300px; --y: -4px;  --animation: circle-7;  }
+.uiverse .wrapper .circle.circle-8  { --x: 340px; --y: 2px;   --animation: circle-8;  }
+.uiverse .wrapper .circle.circle-9  { --x: 30px;  --y: 8px;   --animation: circle-9;  }
+.uiverse .wrapper .circle.circle-10 { --x: 80px;  --y: -10px; --animation: circle-10; }
+.uiverse .wrapper .circle.circle-11 { --x: 130px; --y: 6px;   --animation: circle-11; }
+.uiverse .wrapper .circle.circle-12 { --x: 180px; --y: -4px;  --animation: circle-12; }
+.uiverse .wrapper .circle.circle-13 { --x: 230px; --y: 8px;   --animation: circle-13; }
+.uiverse .wrapper .circle.circle-14 { --x: 275px; --y: -8px;  --animation: circle-14; }
+.uiverse .wrapper .circle.circle-15 { --x: 320px; --y: 4px;   --animation: circle-15; }
+.uiverse .wrapper .circle.circle-16 { --x: 360px; --y: -6px;  --animation: circle-16; }
+.uiverse .wrapper .circle.circle-17 { --x: 60px;  --y: -12px; --animation: circle-17; }
+.uiverse .wrapper .circle.circle-18 { --x: 160px; --y: 10px;  --animation: circle-18; }
+.uiverse .wrapper .circle.circle-19 { --x: 260px; --y: -10px; --animation: circle-19; }
+.uiverse .wrapper .circle.circle-20 { --x: 370px; --y: 6px;   --animation: circle-20; }
+
+/* ── Keyframes: each circle drifts gently within its own zone (±20px) ── */
+@keyframes circle-1  { 33%{transform:translate(14px,  10px) translateZ(0)} 66%{transform:translate(4px,  -14px) translateZ(0)} }
+@keyframes circle-2  { 33%{transform:translate(62px,  -8px) translateZ(0)} 66%{transform:translate(48px,  12px)  translateZ(0)} }
+@keyframes circle-3  { 33%{transform:translate(108px, 10px) translateZ(0)} 66%{transform:translate(92px,  -6px)  translateZ(0)} }
+@keyframes circle-4  { 33%{transform:translate(156px,-10px) translateZ(0)} 66%{transform:translate(142px, 8px)   translateZ(0)} }
+@keyframes circle-5  { 33%{transform:translate(206px, 10px) translateZ(0)} 66%{transform:translate(192px, -8px)  translateZ(0)} }
+@keyframes circle-6  { 33%{transform:translate(258px, -8px) translateZ(0)} 66%{transform:translate(244px, 12px)  translateZ(0)} }
+@keyframes circle-7  { 33%{transform:translate(306px, 8px)  translateZ(0)} 66%{transform:translate(292px, -10px) translateZ(0)} }
+@keyframes circle-8  { 33%{transform:translate(346px, -6px) translateZ(0)} 66%{transform:translate(334px, 10px)  translateZ(0)} }
+@keyframes circle-9  { 33%{transform:translate(36px,  -4px) translateZ(0)} 66%{transform:translate(22px,  14px)  translateZ(0)} }
+@keyframes circle-10 { 33%{transform:translate(86px,  8px)  translateZ(0)} 66%{transform:translate(72px,  -12px) translateZ(0)} }
+@keyframes circle-11 { 33%{transform:translate(136px, -8px) translateZ(0)} 66%{transform:translate(122px, 10px)  translateZ(0)} }
+@keyframes circle-12 { 33%{transform:translate(186px, 8px)  translateZ(0)} 66%{transform:translate(172px, -10px) translateZ(0)} }
+@keyframes circle-13 { 33%{transform:translate(236px, -6px) translateZ(0)} 66%{transform:translate(222px, 12px)  translateZ(0)} }
+@keyframes circle-14 { 33%{transform:translate(280px, 10px) translateZ(0)} 66%{transform:translate(268px, -8px)  translateZ(0)} }
+@keyframes circle-15 { 33%{transform:translate(326px, -4px) translateZ(0)} 66%{transform:translate(314px, 12px)  translateZ(0)} }
+@keyframes circle-16 { 33%{transform:translate(366px, 8px)  translateZ(0)} 66%{transform:translate(354px, -8px)  translateZ(0)} }
+@keyframes circle-17 { 33%{transform:translate(66px,  0px)  translateZ(0)} 66%{transform:translate(52px,  -14px) translateZ(0)} }
+@keyframes circle-18 { 33%{transform:translate(166px, -6px) translateZ(0)} 66%{transform:translate(152px, 12px)  translateZ(0)} }
+@keyframes circle-19 { 33%{transform:translate(266px, 8px)  translateZ(0)} 66%{transform:translate(252px, -10px) translateZ(0)} }
+@keyframes circle-20 { 33%{transform:translate(376px, -4px) translateZ(0)} 66%{transform:translate(362px, 10px)  translateZ(0)} }
